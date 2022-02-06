@@ -30,9 +30,7 @@ const doProcessTrades = (tradeData) => {
     if (confirmedTrades.symbols.indexOf(symbol) < 0) {
       confirmedTrades.symbols = confirmedTrades.symbols.concat([symbol]);
     }
-    if (!companyName) {
-      companyName = symbol ? symbol : undefined;
-    }
+    if (!companyName) individualTrade["companyName"] = symbol;
 
     tradesRet = tradesRet.concat(individualTrade);
     count++;
@@ -87,6 +85,7 @@ const data = [
   {
     id: "155ac33b-05c4-42f7-a446-0b7ffacf2504",
     symbol: "VOD",
+    companyName: undefined,
     price: 128.91,
     quantity: 8500,
     currency: "GBP",
